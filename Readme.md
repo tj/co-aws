@@ -10,7 +10,7 @@
 ## Installation
 
 ```
-$ npm install co-aws
+$ npm install co-aws2
 ```
 
 ## Example
