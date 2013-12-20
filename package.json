@@ -1,0 +1,24 @@
+{
+  "name": "co-aws",
+  "version": "0.0.1",
+  "repository": "visionmedia/co-aws",
+  "description": "AWS for generators with co",
+  "keywords": [
+    "amazon",
+    "aws",
+    "ec2",
+    "s3",
+    "co",
+    "generators"
+  ],
+  "dependencies": {
+    "thunkify": "0.0.1",
+    "aws-sdk": "~2.0.0-rc4"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "co": "~3.0.0"
+  },
+  "license": "MIT"
+}
