@@ -1,9 +1,8 @@
-
 # co-aws
 
   AWS client for generators.
 
-  Only EC2 is supported right now, aws-ec2 is massive,
+  Only EC2 is supported right now, aws-sdk is massive,
   but if you feel like wrapping the rest or want to help
   maintain this library let me know! I just need EC2 for now.
 
