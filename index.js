@@ -32,6 +32,9 @@ function Client(opts) {
 
   this.s3 = new aws.S3;
   wrap(this.s3);
+  
+  this.sns = new aws.SNS;
+  wrap(this.sns);
 }
 
 /**
