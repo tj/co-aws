@@ -15,7 +15,7 @@ $ npm install co-aws2
 ## Example
 
 ```js
-var AWS = require('co-aws');
+var AWS = require('co-aws2');
 
 var aws = AWS({
   accessKeyId: conf.key,
@@ -26,6 +26,24 @@ var aws = AWS({
 
 ...
 var instances = yield aws.ec2.describeInstances();
+
+...
+const localImageFileBody = yield fs.readFile(localImageFilePath);
+yield s3.putObject({
+    Bucket: bucket,
+    Key: key,
+    Body: localImageFileBody,
+    ContentType: 'image/jpeg',
+    ACL: 'public-read'
+  });
+
+...
+yield sns.publish({
+  Message: payload,
+  MessageStructure: 'json',
+  TargetArn: endpointArn
+});
+
 ```
 
 # License
