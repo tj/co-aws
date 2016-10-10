@@ -23,3 +23,13 @@ describe('ec2', function(){
     })(done);
   })
 })
+
+describe('s3', function(){
+  it('should be wrapped', function(done){
+    co(function *(){
+      var res = yield aws.s3.listBuckets();
+      res.should.have.property('Buckets');
+    })(done);
+  })
+})
+
