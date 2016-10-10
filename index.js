@@ -28,7 +28,9 @@ function Client(opts) {
 
   // wayyyy more to support...
   this.ec2 = new aws.EC2;
+  this.s3 = new aws.S3;
   wrap(this.ec2);
+  wrap(this.s3);
 }
 
 /**
