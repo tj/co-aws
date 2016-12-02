@@ -38,10 +38,34 @@ yield s3.putObject({
   });
 
 ...
+const message = 'Hey, here\'s a notification!';
+const endpointResult = yield sns.createPlatformEndpoint({
+  PlatformApplicationArn: applicationArn,
+  Token: devicePushToken
+});
 yield sns.publish({
-  Message: payload,
+  Message: { default: message },
   MessageStructure: 'json',
-  TargetArn: endpointArn
+  TargetArn: endpointResult.EndpointArn
+});
+
+...
+yield ses.sendEmail({
+  Source: fromEmailAddress,
+  Destination: { ToAddresses: toEmailAddressArray },
+  Message: {
+    Subject: {
+      Data: subject
+    },
+    Body: {
+      Text: {
+        Data: bodyText
+      },
+      Html: {
+        Data: bodyHTML
+      }
+    }
+  }
 });
 
 ```
