@@ -29,7 +29,7 @@ var instances = yield aws.ec2.describeInstances();
 
 ...
 const localImageFileBody = yield fs.readFile(localImageFilePath);
-yield s3.putObject({
+yield aws.s3.putObject({
     Bucket: bucket,
     Key: key,
     Body: localImageFileBody,
@@ -39,18 +39,18 @@ yield s3.putObject({
 
 ...
 const message = 'Hey, here\'s a notification!';
-const endpointResult = yield sns.createPlatformEndpoint({
+const endpointResult = yield aws.sns.createPlatformEndpoint({
   PlatformApplicationArn: applicationArn,
   Token: devicePushToken
 });
-yield sns.publish({
+yield aws.sns.publish({
   Message: { default: message },
   MessageStructure: 'json',
   TargetArn: endpointResult.EndpointArn
 });
 
 ...
-yield ses.sendEmail({
+yield aws.ses.sendEmail({
   Source: fromEmailAddress,
   Destination: { ToAddresses: toEmailAddressArray },
   Message: {
