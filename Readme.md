@@ -2,7 +2,7 @@
 
   AWS client for generators.
 
-  Only EC2, S3, and SNS are supported right now, aws-sdk is massive,
+  Only EC2, S3, SES and SNS are supported right now, aws-sdk is massive,
   but if you feel like wrapping the rest or want to help
   maintain this library let me know!
 
