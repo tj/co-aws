@@ -26,6 +26,9 @@ function Client(opts) {
   // global?
   aws.config.update(opts);
 
+  // in case the client needs a non-thunkified original version for some reason
+  this.aws = aws;
+
   // wayyyy more to support...
   this.ec2 = new aws.EC2;
   wrap(this.ec2);
